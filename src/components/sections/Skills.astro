@@ -1,0 +1,98 @@
+---
+import Section from "../Section.astro"
+import HTML from "@/icons/html.astro"
+import CSS from "@/icons/css.astro"
+import JavaScript from "@/icons/javascript.astro"
+import TypeScript from "@/icons/type.astro"
+import Git from "@/icons/git.astro"
+import GitHub from "@/icons/GitHub.astro"
+import { skills } from "cv.json"
+import Haskell from "@/icons/Haskell.astro"
+import Python from "@/icons/Python.astro"
+import C from "@/icons/C.astro"
+import Cmasmas from "@/icons/Cmasmas.astro"
+
+
+const SKILLS_ICONS: Record<string, any> = {
+  HTML,
+  CSS,
+  JavaScript,
+  TypeScript,
+  Git,
+  GitHub,
+  Python,
+  Haskell, 
+  C,
+  Cmasmas
+}
+---
+
+<Section title="Habilidades">
+  <ul>
+    {
+      skills.map(({ name, level }) => {
+
+         const displayName = name === "Cmasmas" ? "C++" : name;
+
+          const iconName = name === "Next.js" ? "Next" : name;
+          const Icon = SKILLS_ICONS[iconName];
+
+          return (
+            <div class="level">
+              <li>
+                {Icon && <Icon />} <span>{displayName}</span>
+              </li>
+              <li2>
+              <span>{level}</span>
+            </li2>
+            </div>
+        )
+      })
+    }
+  </ul>
+</Section>
+
+<style>
+  ul {
+    display: inline-flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .level {
+    display: flex; 
+    gap: 10px;
+    flex:1; 
+    padding: 10px;
+    //border: 1px solid #eee; 
+    border-radius: 10px;
+    background: #aaac9271;
+
+  }
+
+  li {
+    align-items: center;
+    //background: #eee;
+    background: #eeeeee8d;
+    border-radius: 6px;
+    color: black;
+    display: flex;
+    font-size: 0.8rem;
+    font-weight: 500;
+    gap: 4px;
+    padding: 0.2rem 0.6rem;
+  }
+
+  li2 {
+    align-items: center;
+    //background: #eeeeee8d;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    color: rgb(74, 56, 56);
+    display: flex;
+    font-size: 0.8rem;
+    font-weight: 500;
+    gap: 5px;
+    padding: 0.3rem 0.6rem;
+  }
+</style>
