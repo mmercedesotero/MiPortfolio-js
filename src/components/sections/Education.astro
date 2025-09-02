@@ -9,7 +9,7 @@ import { education } from "cv.json"
     {
       education.map(({ institution, startDate, endDate, area }) => {
         const startYear = new Date(startDate).getFullYear()
-        const endYear = endDate ? new Date(endDate).getFullYear() : "En progreso";
+        const endYear = endDate ? new Date(endDate).getFullYear() : "En progreso %32";
         const years = `${startYear} - ${endYear}`
 
         return (
