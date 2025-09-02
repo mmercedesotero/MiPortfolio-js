@@ -11,7 +11,7 @@
       "address": "Buenos Aires",
       "postalCode": "1768",
       "countryCode": "ES",
-      "region": "Argentina,"
+      "region": "Argentina"
     },
     "profiles": [
       {
@@ -69,6 +69,16 @@
     {
       "name": "GitHub",
       "level": "Intermedio"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Mi Portfolio",
+      "isActive": true,
+      "description": "Portfolio personal desarrollado con Astro y TypeScript",
+      "highlights": ["Astro", "TypeScript", "CSS"],
+      "url": "https://mmercedesotero.github.io/",
+      "github": "https://github.com/mmercedesotero/MiPortFolio-js"
     }
   ],
   "languages": [
