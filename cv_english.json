@@ -1,0 +1,124 @@
+{
+  "basics": {
+    "name": "María Mercedes Otero",
+    "label": "Information System Engineering student.",
+    "image": "/me.JPG",
+    "email": "mmercedesotero05@gmail.com",
+    "phone": "+541123299056",
+    "url": "https://mmercedesotero.github.io/",
+    "summary": "System Engineering student with a strong interest in software development and problem-solving. I have programming knowledge and a strong motivation to learn new technologies. I stand out for my ability to learn quickly and adapt to new tools. I am seeking my first professional experience in the IT field where I can grow, face new challenges, and apply my knowledge.",
+    "location": {
+      "address": "Buenos Aires",
+      "postalCode": "1768",
+      "countryCode": "ES",
+      "region": "Argentina"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "María Mercedes Otero",
+        "url": "https://www.linkedin.com/in/mar%C3%ADa-mercedes-otero-b832b232a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BsM%2BXvsGPQiKmQXWGumzK2A%3D%3D"
+      },
+      {
+        "network": "GitHub",
+        "username": "mmercedesotero",
+        "url": "https://github.com/mmercedesotero"
+      }
+    ]
+  },
+  "education": [{
+    "institution": "Ana María Janer   ",	
+    "area": "High School Diploma in Computer Science",
+    "startDate": "2019 ", 
+    "endDate": "2023"
+  }
+  ,{
+    "institution": "National Technological University (UTN)  ",	
+    "area": "Bachelor’s Degree in Information Systems Engineering",
+    "startDate": "2023", 
+    "endDate": null
+  }],
+  "skills": [
+    {
+      "name": "Cmasmas",
+      "level": "Advance"
+    },
+    {
+      "name": "HTML",
+      "level": "Advance"
+    },
+    {
+      "name": "C",
+      "level": "Advance"
+    },
+    {
+      "name": "CSS",
+      "level": "Advance"
+    },
+    {
+      "name": "Haskell",
+      "level": "Avanzado"
+    },
+    {
+      "name": "Python",
+      "level": "Beginner"
+    },
+    {
+      "name": "Java",
+      "level": "Intermediate"
+    },
+    {
+      "name": "Git",
+      "level": "Advance"
+    },
+   
+    {
+      "name": "GitHub",
+      "level": "Advance"
+    }
+  ],
+  "projects": [
+    {
+      "name": "My Portfolio",
+      "isActive": true,
+      "description": "Personal portfolio developed with Astro and TypeScript",
+      "highlights": ["Astro", "TypeScript", "CSS"],
+      "url": "https://github.com/mmercedesotero/MiPortfolio-js",
+      "github": "https://github.com/mmercedesotero/MiPortfolio-js"
+    },
+    {
+      "name": "Lexical, Semantic, and Syntactic Analyzer  ",
+      "isActive": true,
+      "description": "Project completed for the course Syntax and Semantics of Programming Languages in collaboration with classmates",
+      "highlights": ["C"],
+      "url": "https://github.com/utn-frba-ssl/25-151-01.git",
+      "github": "https://github.com/utn-frba-ssl/25-151-01.git"
+    }
+  ],
+  "experience": [
+    {
+      "name": "Teaching Assistant ",
+      "position": "Course: Syntax and Semantics of Programming Languages ",
+      "startDate": "2026",
+      "endDate": null,
+      "summary": null
+    }
+    ,{
+      "name": "English Teacher ",
+      "position": "T.E.I English Institute ",
+      "startDate": "2026",
+      "endDate": null,
+      "summary": null
+    }
+  ],
+  "languages": [
+    {
+      "language": "Español",
+      "fluency": "Native"
+    },
+    {
+      "language": "Inglés",
+      "fluency": "Advanced"
+    }
+  ]
+}

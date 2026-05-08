@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "María Mercedes Otero",
-    "label": "Estudiante de Ingenieria en Sistemas.",
+    "label": "Information System Engineering student.",
     "image": "/me.JPG",
     "email": "mmercedesotero05@gmail.com",
     "phone": "+541123299056",
     "url": "https://mmercedesotero.github.io/",
-    "summary": "Soy una estudiante de Ingeniería en Sistemas. Me encanta aprender nuevas herramientas y lenguajes de programación, y estoy en busca de mi primera experiencia laboral para aplicar mis conocimientos y crecer profesionalmente.",
+    "summary": "System Engineering student with a strong interest in software development and problem-solving. I have programming knowledge and a strong motivation to learn new technologies. I stand out for my ability to learn quickly and adapt to new tools. I am seeking my first professional experience in the IT field where I can grow, face new challenges, and apply my knowledge.",
     "location": {
       "address": "Buenos Aires",
       "postalCode": "1768",
@@ -27,27 +27,33 @@
     ]
   },
   "education": [{
-    "institution": "Universidad Tecnológica Nacional",	
-    "area": "Ingeniería en Sistemas de Información",
-    "startDate": "2025", 
+    "institution": "Ana María Janer   ",	
+    "area": "High School Diploma in Computer Science",
+    "startDate": "2019 ", 
+    "endDate": "2023"
+  }
+  ,{
+    "institution": "National Technological University (UTN)  ",	
+    "area": "Bachelor’s Degree in Information Systems Engineering",
+    "startDate": "2023", 
     "endDate": null
   }],
   "skills": [
     {
       "name": "Cmasmas",
-      "level": "Avanzado"
+      "level": "Advance"
     },
     {
       "name": "HTML",
-      "level": "Intermedio"
+      "level": "Advance"
     },
     {
       "name": "C",
-      "level": "Intermedio"
+      "level": "Advance"
     },
     {
       "name": "CSS",
-      "level": "Intermedio"
+      "level": "Advance"
     },
     {
       "name": "Haskell",
@@ -55,40 +61,68 @@
     },
     {
       "name": "Python",
-      "level": "Principiante"
+      "level": "Beginner"
     },
     {
-      "name": "JavaScript",
-      "level": "Principiante"
+      "name": "Java",
+      "level": "Intermediate"
     },
     {
       "name": "Git",
-      "level": "Principiante"
+      "level": "Advance"
     },
    
     {
       "name": "GitHub",
-      "level": "Intermedio"
+      "level": "Advance"
+    }
+    ,{
+      "name": "SQL",
+      "level": "Beginner"
     }
   ],
   "projects": [
     {
-      "name": "Mi Portfolio",
+      "name": "My Portfolio",
       "isActive": true,
-      "description": "Portfolio personal desarrollado con Astro y TypeScript",
+      "description": "Personal portfolio developed with Astro and TypeScript",
       "highlights": ["Astro", "TypeScript", "CSS"],
       "url": "https://mmercedesotero.github.io/",
-      "github": "https://github.com/mmercedesotero/MiPortFolio-js"
+      "github": "https://github.com/mmercedesotero/MiPortfolio-js"
+    },
+    {
+      "name": "Lexical, Semantic, and Syntactic Analyzer  ",
+      "isActive": true,
+      "description": "Project completed for the course Syntax and Semantics of Programming Languages in collaboration with classmates",
+      "highlights": ["C"],
+      "url": "https://github.com/utn-frba-ssl/25-151-01.git",
+      "github": "https://github.com/utn-frba-ssl/25-151-01.git"
+    }
+  ],
+  "experience": [
+    {
+      "name": "Teaching Assistant ",
+      "position": "Course: Syntax and Semantics of Programming Languages ",
+      "startDate": "2026",
+      "endDate": null,
+      "summary": null
+    }
+    ,{
+      "name": "English Teacher ",
+      "position": "T.E.I English Institute ",
+      "startDate": "2026",
+      "endDate": null,
+      "summary": null
     }
   ],
   "languages": [
     {
       "language": "Español",
-      "fluency": "Lenguaje Nativo"
+      "fluency": "Native"
     },
     {
       "language": "Inglés",
-      "fluency": "Avanzado"
+      "fluency": "Advanced"
     }
   ]
 }
