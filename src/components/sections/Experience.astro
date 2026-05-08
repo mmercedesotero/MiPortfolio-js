@@ -3,11 +3,11 @@ import Section from "../Section.astro"
 import { experience } from "cv.json"
 ---
 
-<Section  title="Experiencia laboral" >
+<Section  title="Experience" >
   <ul>
     {
       experience.map(
-        ({ name, startDate, endDate, position, summary, highlights, url }) => {
+        ({ name, startDate, endDate, position, summary }) => {
           const startYear = new Date(startDate).getFullYear()
           const endYear =
             endDate != null ? new Date(endDate).getFullYear() : "Actual"
@@ -18,7 +18,7 @@ import { experience } from "cv.json"
                 <header>
                   <div>
                     <h3>
-                      <a href={url || "#"} title={`Ver ${name}`} target="_blank">
+                      <a href="#" title={`Ver ${name}`} target="_blank">
                         {name}
                       </a>
                     </h3>
