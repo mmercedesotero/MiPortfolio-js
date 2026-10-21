@@ -2,10 +2,18 @@
 import GitHub from "@/icons/GitHub.astro"
 import Section from "../Section.astro"
 
-import { projects } from "cv.json"
+import type { CV } from "@/cv"
+
+interface Props {
+  cv: CV
+  lang: "es" | "en"
+}
+
+const { cv, lang } = Astro.props
+const { projects } = cv
 ---
 
-<Section title="Proyects">
+<Section title={lang === "es" ? "Proyectos" : "Projects"}>
   <ul>
     {
       projects.map(
@@ -15,7 +23,7 @@ import { projects } from "cv.json"
               <article>
                 <header>
                   <h3>
-                    <a href={url} target="_blank" title={`Ver el proyecto ${name}`}>
+                    <a href={url} target="_blank" title={lang === "es" ? `Ver el proyecto ${name}` : `View the ${name} project`}>
                       {name}
                     </a>
                     {isActive && <span>•</span>}
@@ -24,7 +32,7 @@ import { projects } from "cv.json"
                         class="github-code-link"
                         href={github}
                         target="_blank"
-                        title={`Ver código fuente del proyecto ${name}`}
+                        title={lang === "es" ? `Ver código fuente del proyecto ${name}` : `View source code for ${name}`}
                       >
                         <GitHub />
                       </a>
@@ -49,9 +57,13 @@ import { projects } from "cv.json"
 <style>
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
     margin-inline: -16px;
+  }
+
+  li:last-child {
+    grid-column: 1 / -1;
   }
 
   article {
@@ -89,8 +101,11 @@ import { projects } from "cv.json"
   }
 
   article h3 span {
-    color: rgb(0, 188, 47);
+    color: rgb(9, 231, 65);
     animation-name: flicker;
+    font-size: 1.8rem;
+    display: inline-block;
+    transform: translateY(4px);
     animation-duration: 3s;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
@@ -107,7 +122,7 @@ import { projects } from "cv.json"
     border-radius: 6px;
     background: #eee;
     color: #444;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     font-weight: 500;
     padding: 0.2rem 0.6rem;
   }
@@ -131,6 +146,7 @@ import { projects } from "cv.json"
   @media (width <= 700px) {
     ul {
       margin-inline: 0px;
+      grid-template-columns: 1fr;
     }
 
     article {

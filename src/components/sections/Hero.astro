@@ -1,15 +1,25 @@
 ---
-import { basics } from "cv.json"
 import Section from "@/components/Section.astro"
 import Mail from "@/icons/Mail.astro"
 import Phone from "@/icons/Phone.astro"
 import LinkedIn from "@/icons/LinkedIn.astro"
 import GitHub from "@/icons/GitHub.astro"
 import WorldMap from "@/icons/WorldMap.astro"
+import Language from "@/icons/Language.astro"
 import type { SocialIcon } from "@/types"
+import type { CV } from "@/cv"
 
-const { name, label, image, location, profiles, phone, email } = basics
-const { region, address, postalCode, countryCode } = location
+interface Props {
+  cv: CV
+  lang: "es" | "en"
+}
+
+const { cv, lang } = Astro.props
+const { name, label, image, location, profiles, phone, email } = cv.basics
+const { region, address } = location
+const languageUrl = lang === "es" ? "/en/" : "/"
+const languageTitle =
+  lang === "es" ? "Cambiar idioma a inglés" : "Switch language to Spanish"
 
 const SOCIAL_ICONS: SocialIcon = {
   GitHub,
@@ -61,7 +71,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
           )
         }
         {
-          profiles.map(({ network, url, username }) => {
+          profiles.map(({ network, url }) => {
             const Icon = SOCIAL_ICONS[network]
 
             return (
@@ -76,6 +86,16 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
             )
           })
         }
+        <a
+          class="language-switch"
+          href={languageUrl}
+          title={languageTitle}
+          aria-label={languageTitle}
+          lang={lang === "es" ? "en" : "es"}
+        >
+          <Language />
+          <span>{lang === "es" ? "ES" : "EN"}</span>
+        </a>
       </footer>
     </div>
     <figure>
@@ -154,6 +174,13 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
   footer a:hover {
     background: #eee;
     border: 1px solid #ddd;
+  }
+
+  footer .language-switch {
+    gap: 4px;
+    width: auto;
+    font-size: 0.75rem;
+    font-weight: 530  ;
   }
 
   @media (width <= 700px) {

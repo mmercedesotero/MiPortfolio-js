@@ -22,7 +22,7 @@ interface Basics {
 interface Location {
   address: string
   postalCode: string
-  city: string
+  city?: string
   countryCode: string
   region: string
 }

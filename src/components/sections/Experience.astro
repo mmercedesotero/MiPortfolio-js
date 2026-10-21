@@ -1,16 +1,29 @@
 ---
 import Section from "../Section.astro"
-import { experience } from "cv.json"
+import { getYearFromDate } from "@/utils/date"
+import type { CV } from "@/cv"
+
+interface Props {
+  cv: CV
+  lang: "es" | "en"
+}
+
+const { cv, lang } = Astro.props
+const { experience } = cv
 ---
 
-<Section  title="Experience" >
+<Section title={lang === "es" ? "Experiencia" : "Experience"}>
   <ul>
     {
       experience.map(
         ({ name, startDate, endDate, position, summary }) => {
-          const startYear = new Date(startDate).getFullYear()
+          const startYear = getYearFromDate(startDate)
           const endYear =
-            endDate != null ? new Date(endDate).getFullYear() : "Actual"
+            endDate != null
+              ? getYearFromDate(endDate)
+              : lang === "es"
+                ? "Actualidad"
+                : "Present"
 
           return (
             <li>
@@ -18,7 +31,7 @@ import { experience } from "cv.json"
                 <header>
                   <div>
                     <h3>
-                      <a href="#" title={`Ver ${name}`} target="_blank">
+                      <a href="#" title={lang === "es" ? `Ver ${name}` : `View ${name}`} target="_blank">
                         {name}
                       </a>
                     </h3>
@@ -128,4 +141,3 @@ import { experience } from "cv.json"
   }
 
 </style>
-

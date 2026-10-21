@@ -1,17 +1,17 @@
 ---
-import { basics } from "cv.json"
-
 interface Props {
   title: string
+  summary: string
+  image: string
+  url: string
+  lang: "es" | "en"
 }
 
-const { title } = Astro.props
-
-const { image, summary, url } = basics
+const { title, summary, image, url, lang } = Astro.props
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>

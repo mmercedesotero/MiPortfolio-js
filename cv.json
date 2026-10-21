@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "María Mercedes Otero",
-    "label": "Information System Engineering student.",
-    "image": "/me.JPG",
+    "label": "Estudiante de Ingeniería en Sistemas de Información.",
+    "image": "/IMG_7596.jpeg",
     "email": "mmercedesotero05@gmail.com",
     "phone": "+541123299056",
     "url": "https://mmercedesotero.github.io/",
-    "summary": "System Engineering student with a strong interest in software development and problem-solving. I have programming knowledge and a strong motivation to learn new technologies. I stand out for my ability to learn quickly and adapt to new tools. I am seeking my first professional experience in the IT field where I can grow, face new challenges, and apply my knowledge.",
+    "summary": "Soy estudiante de tercer año de Ingeniería en Sistemas de Información en la UTN, con una sólida formación en informática y un gran interés por el análisis, diseño y desarrollo de software. Me apasiona comprender los problemas desde una mirada integral, analizar requerimientos y participar en la construcción de soluciones tecnológicas que aporten valor. Además de la programación, disfruto especialmente las etapas de modelado, arquitectura y diseño de sistemas.",
     "location": {
       "address": "Buenos Aires",
       "postalCode": "1768",
@@ -28,32 +28,32 @@
   },
   "education": [{
     "institution": "Ana María Janer   ",	
-    "area": "High School Diploma in Computer Science",
+    "area": "Escuela secundaria con Bachiller Informática",
     "startDate": "2019 ", 
     "endDate": "2023"
   }
   ,{
-    "institution": "National Technological University (UTN)  ",	
-    "area": "Bachelor’s Degree in Information Systems Engineering",
-    "startDate": "2023", 
+    "institution": "Universidad Tecnológica Nacional (UTN)  ",	
+    "area": "Ingeniería en Sistemas de Información",
+    "startDate": "2024", 
     "endDate": null
   }],
   "skills": [
     {
       "name": "Cmasmas",
-      "level": "Advance"
+      "level": "Avanzado"
     },
     {
       "name": "HTML",
-      "level": "Advance"
+      "level": "Avanzado"
     },
     {
       "name": "C",
-      "level": "Advance"
+      "level": "Avanzado"
     },
     {
       "name": "CSS",
-      "level": "Advance"
+      "level": "Avanzado"
     },
     {
       "name": "Haskell",
@@ -61,54 +61,62 @@
     },
     {
       "name": "Python",
-      "level": "Beginner"
+      "level": "Principiante"
     },
     {
       "name": "Java",
-      "level": "Intermediate"
+      "level": "Avanzado"
     },
     {
       "name": "Git",
-      "level": "Advance"
+      "level": "Avanzado"
     },
    
     {
       "name": "GitHub",
-      "level": "Advance"
+      "level": "Avanzado"
     }
     ,{
       "name": "SQL",
-      "level": "Beginner"
+      "level": "Intermedio"
     }
   ],
   "projects": [
     {
       "name": "My Portfolio",
-      "isActive": true,
-      "description": "Personal portfolio developed with Astro and TypeScript",
+      "isActive": false,
+      "description": "Portfolio personal desarrollado con Astro y TypeScript",
       "highlights": ["Astro", "TypeScript", "CSS"],
       "url": "https://mmercedesotero.github.io/",
       "github": "https://github.com/mmercedesotero/MiPortfolio-js"
     },
     {
-      "name": "Lexical, Semantic, and Syntactic Analyzer  ",
-      "isActive": true,
-      "description": "Project completed for the course Syntax and Semantics of Programming Languages in collaboration with classmates",
-      "highlights": ["C"],
+      "name": "Analizador Léxico, Semántico y Sintáctico  ",
+      "isActive": false,
+      "description": "Proyecto completado para la materia Sintaxis y Semántica de Lenguajes de Programación en colaboración con compañeros",
+      "highlights": ["C", "Bison", "Flex"],
       "url": "https://github.com/utn-frba-ssl/25-151-01.git",
       "github": "https://github.com/utn-frba-ssl/25-151-01.git"
+    },
+  {
+      "name": "Diseño y Modelado de Servicio de Software",
+      "isActive": true,
+      "description": "Proyecto grupal de análisis y diseño de software en el que se desarrollaron modelos UML, se aplicaron patrones de diseño y se definió la arquitectura de una solución orientada a resolver necesidades de negocio.",
+      "highlights": ["Java", "SQL", "Patrones de Diseño", "UML"],
+      "url": "https://mmercedesotero.github.io/",
+      "github": "https://github.com/NicolasSchkurko/TPA-G3-DDS-2026"
     }
   ],
   "experience": [
     {
-      "name": "Teaching Assistant ",
-      "position": "Course: Syntax and Semantics of Programming Languages ",
+      "name": "Ayudante de Cátedra",
+      "position": "Materia: Sintaxis y Semántica de Lenguajes de Programación ",
       "startDate": "2026",
       "endDate": null,
       "summary": null
     }
     ,{
-      "name": "English Teacher ",
+      "name": "Profesora de Inglés ",
       "position": "T.E.I English Institute ",
       "startDate": "2026",
       "endDate": null,
@@ -118,11 +126,11 @@
   "languages": [
     {
       "language": "Español",
-      "fluency": "Native"
+      "fluency": "Nativo"
     },
     {
       "language": "Inglés",
-      "fluency": "Advanced"
+      "fluency": "Avanzado"
     }
   ]
 }

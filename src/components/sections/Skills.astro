@@ -6,13 +6,19 @@ import JavaScript from "@/icons/javascript.astro"
 import TypeScript from "@/icons/type.astro"
 import Git from "@/icons/git.astro"
 import GitHub from "@/icons/GitHub.astro"
-import { skills } from "cv.json"
 import Haskell from "@/icons/Haskell.astro"
 import Python from "@/icons/Python.astro"
 import C from "@/icons/C.astro"
 import Cmasmas from "@/icons/Cmasmas.astro"
+import type { CV } from "@/cv"
 
+interface Props {
+  cv: CV
+  lang: "es" | "en"
+}
 
+const { cv, lang } = Astro.props
+const { skills } = cv
 const SKILLS_ICONS: Record<string, any> = {
   HTML,
   CSS,
@@ -27,7 +33,7 @@ const SKILLS_ICONS: Record<string, any> = {
 }
 ---
 
-<Section title="Skills">
+<Section title={lang === "es" ? "Habilidades" : "Skills"}>
   <ul>
     {
       skills.map(({ name, level }) => {

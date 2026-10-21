@@ -1,9 +1,17 @@
 ---
-import { languages } from "cv.json"
 import Section from "../Section.astro"
+import type { CV } from "@/cv"
+
+interface Props {
+  cv: CV
+  lang: "es" | "en"
+}
+
+const { cv, lang } = Astro.props
+const { languages } = cv
 ---
 
-<Section title="Languages">
+<Section title={lang === "es" ? "Idiomas" : "Languages"}>
   <ul>
     {
       languages.map(({ language, fluency }) => {

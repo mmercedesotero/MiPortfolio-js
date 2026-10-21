@@ -2,11 +2,11 @@
   "basics": {
     "name": "María Mercedes Otero",
     "label": "Information System Engineering student.",
-    "image": "/me.JPG",
+    "image": "/IMG_7596.jpeg",
     "email": "mmercedesotero05@gmail.com",
     "phone": "+541123299056",
     "url": "https://mmercedesotero.github.io/",
-    "summary": "System Engineering student with a strong interest in software development and problem-solving. I have programming knowledge and a strong motivation to learn new technologies. I stand out for my ability to learn quickly and adapt to new tools. I am seeking my first professional experience in the IT field where I can grow, face new challenges, and apply my knowledge.",
+    "summary": "I am a third-year Information Systems Engineering student at UTN, with a strong background in computer science and a deep interest in software analysis, design, and development. I am passionate about understanding problems from a comprehensive perspective, analyzing requirements, and contributing to the creation of technology solutions that generate real value. In addition to programming, I particularly enjoy the stages of system modeling, software architecture, and system design.",
     "location": {
       "address": "Buenos Aires",
       "postalCode": "1768",
@@ -57,7 +57,7 @@
     },
     {
       "name": "Haskell",
-      "level": "Avanzado"
+      "level": "Advance"
     },
     {
       "name": "Python",
@@ -65,7 +65,7 @@
     },
     {
       "name": "Java",
-      "level": "Intermediate"
+      "level": "dvance"
     },
     {
       "name": "Git",
@@ -75,6 +75,10 @@
     {
       "name": "GitHub",
       "level": "Advance"
+    },
+    {
+      "name": "SQL",
+      "level": "Intermediate"
     }
   ],
   "projects": [
@@ -90,9 +94,17 @@
       "name": "Lexical, Semantic, and Syntactic Analyzer  ",
       "isActive": true,
       "description": "Project completed for the course Syntax and Semantics of Programming Languages in collaboration with classmates",
-      "highlights": ["C"],
+      "highlights": ["C", "Bison", "Flex"],
       "url": "https://github.com/utn-frba-ssl/25-151-01.git",
       "github": "https://github.com/utn-frba-ssl/25-151-01.git"
+    },
+    {
+      "name": "Software Service Design and Modeling",
+      "isActive": false,
+      "description": "Group software analysis and design project involving UML modeling, design patterns, and the definition of an architecture for a solution addressing business needs.",
+      "highlights": ["Java", "SQL", "Design Patterns, UML"],
+      "url": "https://mmercedesotero.github.io/",
+      "github": "https://github.com/NicolasSchkurko/TPA-G3-DDS-2026"
     }
   ],
   "experience": [
