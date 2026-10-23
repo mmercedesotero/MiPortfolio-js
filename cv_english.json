@@ -84,7 +84,7 @@
   "projects": [
     {
       "name": "My Portfolio",
-      "isActive": true,
+      "isActive": false,
       "description": "Personal portfolio developed with Astro and TypeScript",
       "highlights": ["Astro", "TypeScript", "CSS"],
       "url": "https://github.com/mmercedesotero/MiPortfolio-js",
@@ -92,19 +92,19 @@
     },
     {
       "name": "Lexical, Semantic, and Syntactic Analyzer  ",
-      "isActive": true,
+      "isActive": false,
       "description": "Project completed for the course Syntax and Semantics of Programming Languages in collaboration with classmates",
       "highlights": ["C", "Bison", "Flex"],
-      "url": "https://github.com/utn-frba-ssl/25-151-01.git",
-      "github": "https://github.com/utn-frba-ssl/25-151-01.git"
+      "url": "https://github.com/mmercedesotero/Analizador-Sint-ctico-L-xico-y-Sem-ntico",
+      "github": "https://github.com/mmercedesotero/Analizador-Sint-ctico-L-xico-y-Sem-ntico"
     },
     {
       "name": "Software Service Design and Modeling",
-      "isActive": false,
+      "isActive": true,
       "description": "Group software analysis and design project involving UML modeling, design patterns, and the definition of an architecture for a solution addressing business needs.",
       "highlights": ["Java", "SQL", "Design Patterns, UML"],
-      "url": "https://mmercedesotero.github.io/",
-      "github": "https://github.com/NicolasSchkurko/TPA-G3-DDS-2026"
+      "url": "https://github.com/mmercedesotero/TPA-G3-DDS-2026",
+      "github": "https://github.com/mmercedesotero/TPA-G3-DDS-2026"
     }
   ],
   "experience": [

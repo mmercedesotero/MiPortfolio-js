@@ -95,16 +95,16 @@
       "isActive": false,
       "description": "Proyecto completado para la materia Sintaxis y Semántica de Lenguajes de Programación en colaboración con compañeros",
       "highlights": ["C", "Bison", "Flex"],
-      "url": "https://github.com/utn-frba-ssl/25-151-01.git",
-      "github": "https://github.com/utn-frba-ssl/25-151-01.git"
+      "url": "https://github.com/mmercedesotero/Analizador-Sint-ctico-L-xico-y-Sem-ntico",
+      "github": "https://github.com/mmercedesotero/Analizador-Sint-ctico-L-xico-y-Sem-ntico"
     },
   {
       "name": "Diseño y Modelado de Servicio de Software",
       "isActive": true,
       "description": "Proyecto grupal de análisis y diseño de software en el que se desarrollaron modelos UML, se aplicaron patrones de diseño y se definió la arquitectura de una solución orientada a resolver necesidades de negocio.",
       "highlights": ["Java", "SQL", "Patrones de Diseño", "UML"],
-      "url": "https://mmercedesotero.github.io/",
-      "github": "https://github.com/NicolasSchkurko/TPA-G3-DDS-2026"
+      "url": "https://github.com/mmercedesotero/TPA-G3-DDS-2026",
+      "github": "https://github.com/mmercedesotero/TPA-G3-DDS-2026"
     }
   ],
   "experience": [
