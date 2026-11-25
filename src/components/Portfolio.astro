@@ -1,39 +1,51 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-import About from "@/components/sections/About.astro"
-import Education from "@/components/sections/Education.astro"
-import Experience from "@/components/sections/Experience.astro"
+import Nav from "@/components/Nav.astro"
 import Hero from "@/components/sections/Hero.astro"
+import About from "@/components/sections/About.astro"
+import Experience from "@/components/sections/Experience.astro"
+import Education from "@/components/sections/Education.astro"
 import Projects from "@/components/sections/Projects.astro"
 import Skills from "@/components/sections/Skills.astro"
-import Idioma from "@/components/sections/Idiomas.astro"
+import Languages from "@/components/sections/Languages.astro"
+import Contact from "@/components/sections/Contact.astro"
+import Section from "@/components/Section.astro"
 import KeyboardManager from "@/components/KeyboardManager.astro"
-import type { CV } from "@/cv"
+import { getText } from "@/utils/i18n"
+import type { SectionProps } from "@/types"
 
-interface Props {
-  cv: CV
-  lang: "es" | "en"
-}
-
-const { cv, lang } = Astro.props
+const { cv, lang } = Astro.props as SectionProps
 const { name, label, summary, image, url } = cv.basics
+const t = getText(lang)
 ---
 
 <Layout
-  title={`${lang === "es" ? "Portafolio" : "Portfolio"} de ${name} - ${label}`}
+  title={`${lang === "es" ? "Portafolio de" : "Portfolio of"} ${name} - ${label}`}
   summary={summary}
   image={image}
   url={url}
   lang={lang}
 >
+  <Nav name={name} lang={lang} />
+
   <main>
     <Hero cv={cv} lang={lang} />
     <About cv={cv} lang={lang} />
-    <Experience cv={cv} lang={lang} />
-    <Education cv={cv} lang={lang} />
+
+    <Section id="journey" eyebrow={t.sections.experience.eyebrow} title={t.nav.journey}>
+      <div class="split">
+        <Experience cv={cv} lang={lang} />
+        <Education cv={cv} lang={lang} />
+      </div>
+    </Section>
+
     <Projects cv={cv} lang={lang} />
     <Skills cv={cv} lang={lang} />
-    <Idioma cv={cv} lang={lang} />
+
+    <div class="closing">
+      <Languages cv={cv} lang={lang} />
+      <Contact cv={cv} lang={lang} />
+    </div>
   </main>
 
   <KeyboardManager cv={cv} lang={lang} />
@@ -41,14 +53,46 @@ const { name, label, summary, image, url } = cv.basics
 
 <style>
   main {
-    padding: 4rem;
-    margin: auto;
-    width: 100%;
+    padding-inline: 1.25rem;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+  }
+
+  .closing {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+    gap: 2.5rem;
+    align-items: start;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-block: 3.5rem 2rem;
   }
 
   @media (width <= 700px) {
-    main {
-      padding: 2rem;
+    .split,
+    .closing {
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+    }
+
+    .closing {
+      padding-block: 2.25rem 1rem;
     }
   }
+
+  @media print {
+    main {
+      padding-inline: 0;
+    }
+
+    .split,
+    .closing {
+      gap: 1.5rem;
+    }
+  }
+
 </style>

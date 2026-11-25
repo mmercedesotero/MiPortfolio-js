@@ -1,13 +1,16 @@
 ---
+import type { Lang } from "@/types"
+
 interface Props {
   title: string
   summary: string
   image: string
   url: string
-  lang: "es" | "en"
+  lang: Lang
 }
 
 const { title, summary, image, url, lang } = Astro.props
+const imageUrl = new URL(image, url).href
 ---
 
 <!doctype html>
@@ -16,22 +19,29 @@ const { title, summary, image, url, lang } = Astro.props
     <meta charset="UTF-8" />
     <title>{title}</title>
     <meta name="description" content={summary} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" as="image" href={image} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={summary} />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content={imageUrl} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content={url.split("//")[1] ?? ''} />
+    <meta property="twitter:domain" content={url.split("//")[1] ?? ""} />
     <meta property="twitter:url" content={url} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={summary} />
-    <meta name="twitter:image" content="" />
+    <meta name="twitter:image" content={imageUrl} />
   </head>
   <body>
     <slot />
@@ -39,16 +49,28 @@ const { title, summary, image, url, lang } = Astro.props
 </html>
 
 <style is:global>
+  :root {
+    --olive: #564d06;
+    --olive-dark: #2b2703;
+    --olive-soft: #aaac9271;
+    --page-bg: #c0bca1;
+    --card: #d3d0bb;
+    --ink: #111;
+    --text: #4c4b4b;
+    --muted: #666;
+    --line: #564d0624;
+    --live: rgb(9, 231, 65);
+    --radius: 16px;
+    --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  }
+
   html {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      "Courier New",
-      Courier,
-      monospace;
-    background: #564d0660;
-    letter-spacing: -0.025rem;
+    font-family: var(--font-sans);
+    color-scheme: light;
+    background: var(--page-bg);
+    scroll-behavior: smooth;
+    scroll-padding-top: 76px;
   }
 
   body,
@@ -57,7 +79,12 @@ const { title, summary, image, url, lang } = Astro.props
     padding: 0;
   }
 
+  body {
+    padding-bottom: 3.5rem;
+  }
+
   a {
+    color: inherit;
     text-decoration: none;
   }
 
@@ -78,33 +105,71 @@ const { title, summary, image, url, lang } = Astro.props
   h3,
   h4 {
     margin: 0;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      "Open Sans",
-      "Helvetica Neue",
-      sans-serif;
+    font-family: var(--font-sans);
   }
 
   p {
-    color: #4c4b4b;
+    color: var(--text);
     font-size: 0.9rem;
-    line-height: 1.5;
+    line-height: 1.65;
     margin: 0;
     text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--olive);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   .print {
     display: none !important;
   }
 
+  /* Margen 0 en la hoja: el navegador no tiene dónde dibujar la fecha, el
+     título ni la URL (encabezado y pie). El margen real lo da el body. */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
   @media print {
+    :root {
+      --page-bg: #fff;
+      --card: #f6f5ee;
+      --text: #333;
+    }
+
+    html,
+    body {
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      padding: 14mm 16mm;
+      font-size: 11pt;
+    }
+
+    h2,
+    h3 {
+      break-after: avoid;
+    }
+
+    li {
+      break-inside: avoid;
+    }
+
+    a {
+      text-decoration: none;
+    }
     .no-print {
       display: none !important;
     }

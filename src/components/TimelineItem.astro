@@ -1,0 +1,77 @@
+---
+interface Props {
+  title: string
+  subtitle: string
+  period: string
+  start: string
+  description?: string | null
+}
+
+const { title, subtitle, period, start, description } = Astro.props
+---
+
+<li>
+  <article>
+    <header>
+      <h3>{title}</h3>
+      <time class="period" datetime={start}>{period}</time>
+    </header>
+    <h4>{subtitle}</h4>
+    {description && <p>{description}</p>}
+  </article>
+</li>
+
+<style>
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    padding-bottom: 1.75rem;
+    border-left: 2px solid #564d0630;
+  }
+
+  li:last-child {
+    padding-bottom: 0;
+  }
+
+  li::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--page-bg);
+    border: 3px solid var(--olive);
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  h4 {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #333;
+  }
+
+  .period {
+    color: var(--olive);
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  p {
+    margin-top: 6px;
+  }
+</style>

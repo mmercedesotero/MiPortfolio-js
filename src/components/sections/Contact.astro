@@ -1,0 +1,110 @@
+---
+import Mail from "@/icons/Mail.astro"
+import Phone from "@/icons/Phone.astro"
+import LinkedIn from "@/icons/LinkedIn.astro"
+import GitHub from "@/icons/GitHub.astro"
+import { getText } from "@/utils/i18n"
+import type { SectionProps } from "@/types"
+
+const { cv, lang } = Astro.props as SectionProps
+const { title, text } = getText(lang).sections.contact
+const { email, phone, profiles } = cv.basics
+
+const SOCIAL_ICONS: Record<string, typeof GitHub> = { GitHub, LinkedIn }
+---
+
+<aside id="contact" class="no-print">
+  <h2>{title}</h2>
+  <p>{text}</p>
+
+  <div class="links">
+    {
+      email && (
+        <a class="primary" href={`mailto:${email}`}>
+          <Mail />
+          {email}
+        </a>
+      )
+    }
+    {
+      phone && (
+        <a href={`tel:${phone}`}>
+          <Phone />
+          {phone}
+        </a>
+      )
+    }
+    {
+      profiles
+        .filter(({ network }) => network in SOCIAL_ICONS)
+        .map(({ network, url }) => {
+          const Icon = SOCIAL_ICONS[network]
+
+          return (
+            <a href={url} target="_blank" rel="noopener noreferrer">
+              <Icon />
+              {network}
+            </a>
+          )
+        })
+    }
+  </div>
+</aside>
+
+<style>
+  aside {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 2rem;
+    border-radius: 20px;
+    background: var(--olive-dark);
+    color: #fff;
+    scroll-margin-top: 80px;
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    color: #e6e4cf;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.6rem 1rem;
+    border: 1px solid #ffffff40;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  a:hover {
+    background: #ffffff1f;
+    transform: translateY(-2px);
+  }
+
+  a.primary {
+    background: #fff;
+    border-color: #fff;
+    color: var(--olive-dark);
+  }
+
+  a.primary:hover {
+    background: #eeeddc;
+  }
+</style>

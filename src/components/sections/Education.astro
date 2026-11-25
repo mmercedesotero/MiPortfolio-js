@@ -1,81 +1,34 @@
 ---
-import Section from "../Section.astro"
+import TimelineItem from "@/components/TimelineItem.astro"
+import { getText } from "@/utils/i18n"
 import { getYearFromDate } from "@/utils/date"
-import type { CV } from "@/cv"
+import type { SectionProps } from "@/types"
 
-interface Props {
-  cv: CV
-  lang: "es" | "en"
-}
-
-const { cv, lang } = Astro.props
-const { education } = cv
+const { cv, lang } = Astro.props as SectionProps
+const t = getText(lang)
 ---
 
-<Section title={lang === "es" ? "Educación" : "Education"}>
+<div>
+  <h3>{t.sections.education.title}</h3>
   <ul>
     {
-      education.map(({ institution, startDate, endDate, area }) => {
-        const startYear = getYearFromDate(startDate)
-        const endYear = endDate
-          ? getYearFromDate(endDate)
-          : lang === "es"
-            ? "En curso"
-            : "Present"
-        const years = `${startYear} - ${endYear}`
-
-        return (
-          <li>
-            <article>
-              <header>
-                <div>
-                  <h3>{institution}</h3>
-                </div>
-
-                <time>{years}</time>
-              </header>
-
-              <footer>
-                <p>{area}</p>
-              </footer>
-            </article>
-          </li>
-        )
-      })
+      cv.education.map(({ institution, area, startDate, endDate }) => (
+        <TimelineItem
+          title={institution}
+          subtitle={area}
+          period={`${getYearFromDate(startDate)} - ${endDate ? getYearFromDate(endDate) : t.inProgress}`}
+          start={startDate}
+        />
+      ))
     }
   </ul>
-</Section>
+</div>
 
 <style>
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    margin-top: 10px;
-    
-  }
-
-  article h3 {
-    font-weight: 500;
-    color: #111;
-  }
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 4px;
-  }
-
-  time {
-    color: #555;
-    font-size: 0.85rem;
-    min-width: 102px;
-  }
-
-  @media (width <= 700px) {
-    time {
-      text-align: right;
-    }
+  h3 {
+    margin-bottom: 1.25rem;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--ink);
   }
 </style>

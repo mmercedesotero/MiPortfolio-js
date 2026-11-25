@@ -1,10 +1,10 @@
 export interface CV {
   basics: Basics
-  experience: Array<Experience>
-  education: Array<Education>
-  skills: Array<Skills>
-  languages: Array<Languages>
-  projects: Array<Projects>
+  experience: Experience[]
+  education: Education[]
+  skills: Skill[]
+  languages: Language[]
+  projects: Project[]
 }
 
 interface Basics {
@@ -16,7 +16,7 @@ interface Basics {
   url: string
   summary: string
   location: Location
-  profiles: Array<Profiles>
+  profiles: Profile[]
 }
 
 interface Location {
@@ -27,7 +27,7 @@ interface Location {
   region: string
 }
 
-interface Profiles {
+interface Profile {
   network: string
   username: string
   url: string
@@ -41,25 +41,35 @@ interface Experience {
   summary: string | null
 }
 
-type DateStr = `${string}-${string}-${string}`
+interface Education {
+  institution: string
+  area: string
+  startDate: string
+  endDate: string | null
+}
 
-interface Skills {
+interface Skill {
   name: string
+  category: string
   level: string
 }
 
-interface Languages {
+interface Language {
   language: string
   fluency: string
 }
 
-interface Projects {
+interface Project {
   name: string
   isActive: boolean
+  featured?: boolean
   description: string
-  highlights: Highlight
-  url: string
-  github?: string
+  highlights: string[]
+  links: ProjectLink[]
 }
 
-type Highlight = Array<string>
+interface ProjectLink {
+  label: string
+  url: string
+  type: "live" | "github"
+}

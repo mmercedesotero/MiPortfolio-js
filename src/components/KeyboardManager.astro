@@ -1,19 +1,13 @@
 ---
 import 'hotkeypad/reset.css'
 import 'hotkeypad/index.css'
-import { type SocialIcon } from "@/types"
-import type { CV } from "@/cv"
+import type { SectionProps } from "@/types"
 
-interface Props {
-  cv: CV
-  lang: "es" | "en"
-}
-
-const { cv, lang } = Astro.props
+const { cv, lang } = Astro.props as SectionProps
 const { profiles } = cv.basics
 const isSpanish = lang === "es"
 
-const SOCIAL_ICONS: SocialIcon = {
+const SOCIAL_ICONS: Record<string, string> = {
   GitHub: `<svg
   width="16"
   height="16"
@@ -39,7 +33,7 @@ const SOCIAL_ICONS: SocialIcon = {
 }
 
 const profilesInfo = profiles.map(({ network, url }) => {
-  const icon = SOCIAL_ICONS[network]
+  const icon = SOCIAL_ICONS[network] ?? ""
   const firstLetter = network[0].toUpperCase()
 
   return {
@@ -137,7 +131,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
 
   const footerButton = document.getElementById("footer-button")
   footerButton?.addEventListener("click", () => {
-    var event = new KeyboardEvent("keydown", {
+    const event = new KeyboardEvent("keydown", {
       key: "K",
       code: "KeyK",
       keyCode: 75,
@@ -178,9 +172,9 @@ const profilesInfo = profiles.map(({ network, url }) => {
     }
 
     #footer-button {
-      background: #fff;
+      background: var(--card);
       position: fixed;
-      border: 1px solid #eee;
+      border: 1px solid var(--line);
       right: 10px;
       bottom: 10px;
       width: 50px;
@@ -194,8 +188,8 @@ const profilesInfo = profiles.map(({ network, url }) => {
   }
 
   footer {
-    background: #fdfdfd;
-    border-top: 1px solid #eee;
+    background: var(--card);
+    border-top: 1px solid var(--line);
     position: fixed;
     bottom: 0px;
     width: 100%;
@@ -212,7 +206,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
   }
 
   kbd {
-    background: #eee;
+    background: #564d0620;
     border-radius: 4px;
     padding: 2px 4px;
     font-size: 12px;
