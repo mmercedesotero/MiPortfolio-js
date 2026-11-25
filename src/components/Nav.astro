@@ -1,0 +1,132 @@
+---
+import Language from "@/icons/Language.astro"
+import { getText } from "@/utils/i18n"
+import type { Lang } from "@/types"
+
+interface Props {
+  name: string
+  lang: Lang
+}
+
+const { name, lang } = Astro.props as Props
+const t = getText(lang)
+const isSpanish = lang === "es"
+
+const links = [
+  { href: "#about", label: t.nav.about },
+  { href: "#journey", label: t.nav.journey },
+  { href: "#projects", label: t.nav.projects },
+  { href: "#skills", label: t.nav.skills },
+  { href: "#contact", label: t.nav.contact }
+]
+---
+
+<header class="no-print">
+  <nav>
+    <a class="brand" href="#top" aria-label={name}>
+      <span class="dot"></span>
+      {name.split(" ").slice(0, 2).join(" ")}
+    </a>
+
+    <ul>
+      {links.map(({ href, label }) => (
+        <li><a href={href}>{label}</a></li>
+      ))}
+    </ul>
+
+    <a
+      class="lang"
+      href={isSpanish ? "/en/" : "/"}
+      title={t.hero.switchLang}
+      aria-label={t.hero.switchLang}
+      lang={isSpanish ? "en" : "es"}
+    >
+      <Language />
+      {isSpanish ? "EN" : "ES"}
+    </a>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #2b2703f0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #ffffff14;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 960px;
+    height: 60px;
+    margin: 0 auto;
+    padding-inline: 1rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--live);
+  }
+
+  ul {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  ul a {
+    display: block;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #e6e4cf;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  ul a:hover {
+    background: #ffffff1c;
+    color: #fff;
+  }
+
+  .lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border: 1px solid #ffffff33;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #e6e4cf;
+  }
+
+  .lang:hover {
+    background: #ffffff1c;
+    color: #fff;
+  }
+
+  @media (width <= 700px) {
+    ul {
+      display: none;
+    }
+  }
+</style>

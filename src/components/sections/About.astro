@@ -1,19 +1,27 @@
 ---
-import Section from "../Section.astro"
+import Section from "@/components/Section.astro"
+import { getText } from "@/utils/i18n"
+import type { SectionProps } from "@/types"
 
-import type { CV } from "@/cv"
-
-interface Props {
-  cv: CV
-  lang: "es" | "en"
-}
-
-const { cv, lang } = Astro.props
-const { summary } = cv.basics
+const { cv, lang } = Astro.props as SectionProps
+const { eyebrow, title } = getText(lang).sections.about
 ---
 
-<Section title={lang === "es" ? "Sobre mí" : "About me"}>
-  <p>
-    {summary}
-  </p>
-</Section>
+<div class="about">
+  <Section id="about" eyebrow={eyebrow} title={title}>
+    <p>{cv.basics.summary}</p>
+  </Section>
+</div>
+
+<style>
+  .about {
+    text-align: center;
+  }
+
+  p {
+    max-width: 760px;
+    margin-inline: auto;
+    font-size: 1.02rem;
+    line-height: 1.8;
+  }
+</style>

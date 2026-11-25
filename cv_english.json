@@ -10,7 +10,7 @@
     "location": {
       "address": "Buenos Aires",
       "postalCode": "1768",
-      "countryCode": "ES",
+      "countryCode": "AR",
       "region": "Argentina"
     },
     "profiles": [
@@ -26,98 +26,232 @@
       }
     ]
   },
-  "education": [{
-    "institution": "Ana María Janer   ",	
-    "area": "High School Diploma in Computer Science",
-    "startDate": "2019 ", 
-    "endDate": "2023"
-  }
-  ,{
-    "institution": "National Technological University (UTN)  ",	
-    "area": "Bachelor’s Degree in Information Systems Engineering",
-    "startDate": "2023", 
-    "endDate": null
-  }],
+  "education": [
+    {
+      "institution": "Ana María Janer",
+      "area": "High School Diploma in Computer Science",
+      "startDate": "2019",
+      "endDate": "2023"
+    },
+    {
+      "institution": "National Technological University (UTN)",
+      "area": "Bachelor’s Degree in Information Systems Engineering",
+      "startDate": "2024",
+      "endDate": null
+    }
+  ],
   "skills": [
     {
       "name": "Cmasmas",
-      "level": "Advance"
-    },
-    {
-      "name": "HTML",
-      "level": "Advance"
+      "category": "Languages",
+      "level": "Advanced"
     },
     {
       "name": "C",
-      "level": "Advance"
-    },
-    {
-      "name": "CSS",
-      "level": "Advance"
-    },
-    {
-      "name": "Haskell",
-      "level": "Advance"
-    },
-    {
-      "name": "Python",
-      "level": "Beginner"
+      "category": "Languages",
+      "level": "Advanced"
     },
     {
       "name": "Java",
-      "level": "dvance"
+      "category": "Languages",
+      "level": "Advanced"
     },
     {
-      "name": "Git",
-      "level": "Advance"
+      "name": "Haskell",
+      "category": "Languages",
+      "level": "Advanced"
     },
-   
     {
-      "name": "GitHub",
-      "level": "Advance"
+      "name": "Python",
+      "category": "Languages",
+      "level": "Beginner"
+    },
+    {
+      "name": "JavaScript",
+      "category": "Languages",
+      "level": "Intermediate"
+    },
+    {
+      "name": "TypeScript",
+      "category": "Languages",
+      "level": "Intermediate"
+    },
+    {
+      "name": "HTML",
+      "category": "Frontend",
+      "level": "Advanced"
+    },
+    {
+      "name": "CSS",
+      "category": "Frontend",
+      "level": "Advanced"
+    },
+    {
+      "name": "React",
+      "category": "Frontend",
+      "level": "Intermediate"
+    },
+    {
+      "name": "React Native",
+      "category": "Frontend",
+      "level": "Intermediate"
+    },
+    {
+      "name": "Astro",
+      "category": "Frontend",
+      "level": "Advanced"
+    },
+    {
+      "name": "Node.js",
+      "category": "Backend",
+      "level": "Intermediate"
+    },
+    {
+      "name": "Express",
+      "category": "Backend",
+      "level": "Intermediate"
+    },
+    {
+      "name": "Spring Boot",
+      "category": "Backend",
+      "level": "Intermediate"
     },
     {
       "name": "SQL",
+      "category": "Data",
       "level": "Intermediate"
+    },
+    {
+      "name": "MySQL",
+      "category": "Data",
+      "level": "Intermediate"
+    },
+    {
+      "name": "Git",
+      "category": "Tools",
+      "level": "Advanced"
+    },
+    {
+      "name": "GitHub",
+      "category": "Tools",
+      "level": "Advanced"
+    },
+    {
+      "name": "Docker",
+      "category": "Tools",
+      "level": "Advanced"
+    },
+    {
+      "name": "RabbitMQ",
+      "category": "Tools",
+      "level": "Intermediate"
+    },
+    {
+      "name": "Postman",
+      "category": "Tools",
+      "level": "Advanced"
     }
   ],
   "projects": [
     {
+      "name": "AI Ticket It",
+      "isActive": false,
+      "featured": true,
+      "description": "Platform to publish events and sell tickets, with buyer and organizer accounts. Users can browse and filter events, buy or reserve tickets, pay by card, get a QR-code ticket, download a PDF receipt, chat with the organizer and leave reviews. It started as a mobile app (React Native + Expo) and was adapted to the web with its own desktop design. The backend is a REST API in Node.js + Express with JWT authentication and automated tests.",
+      "highlights": [
+        "React Native",
+        "Expo",
+        "Node.js",
+        "Express",
+        "JWT",
+        "Vercel",
+        "Render"
+      ],
+      "links": [
+        {
+          "label": "View the web app",
+          "url": "https://ai-ticket-it-web-ten.vercel.app",
+          "type": "live"
+        },
+        {
+          "label": "Web source code",
+          "url": "https://github.com/mmercedesotero/AI-Ticket-it-Web",
+          "type": "github"
+        },
+        {
+          "label": "Mobile app source code",
+          "url": "https://github.com/mmercedesotero/AI-Ticket-it",
+          "type": "github"
+        }
+      ]
+    },
+    {
+      "name": "Donations platform with incentives (DDSI final project)",
+      "isActive": true,
+      "featured": true,
+      "description": "Group year-long project for Information Systems Design (9 members). A goods-donation platform with gamification, notifications and logistics, built as four Spring Boot microservices, each with its own MySQL database, asynchronous integration through RabbitMQ, n8n workflows and everything orchestrated with Docker Compose. Includes UML modeling and design patterns.",
+      "highlights": [
+        "Java",
+        "Spring Boot",
+        "MySQL",
+        "RabbitMQ",
+        "Docker",
+        "UML"
+      ],
+      "links": [
+        {
+          "label": "View source code",
+          "url": "https://github.com/mmercedesotero/TPA-G3-DDS-2026",
+          "type": "github"
+        }
+      ]
+    },
+    {
+      "name": "Lexical, Semantic, and Syntactic Analyzer",
+      "isActive": false,
+      "description": "Project completed for the course Syntax and Semantics of Programming Languages, in collaboration with classmates.",
+      "highlights": [
+        "C",
+        "Bison",
+        "Flex"
+      ],
+      "links": [
+        {
+          "label": "View source code",
+          "url": "https://github.com/mmercedesotero/Analizador-Sint-ctico-L-xico-y-Sem-ntico",
+          "type": "github"
+        }
+      ]
+    },
+    {
       "name": "My Portfolio",
       "isActive": false,
-      "description": "Personal portfolio developed with Astro and TypeScript",
-      "highlights": ["Astro", "TypeScript", "CSS"],
-      "url": "https://github.com/mmercedesotero/MiPortfolio-js",
-      "github": "https://github.com/mmercedesotero/MiPortfolio-js"
-    },
-    {
-      "name": "Lexical, Semantic, and Syntactic Analyzer  ",
-      "isActive": false,
-      "description": "Project completed for the course Syntax and Semantics of Programming Languages in collaboration with classmates",
-      "highlights": ["C", "Bison", "Flex"],
-      "url": "https://github.com/mmercedesotero/Analizador-Sint-ctico-L-xico-y-Sem-ntico",
-      "github": "https://github.com/mmercedesotero/Analizador-Sint-ctico-L-xico-y-Sem-ntico"
-    },
-    {
-      "name": "Software Service Design and Modeling",
-      "isActive": true,
-      "description": "Group software analysis and design project involving UML modeling, design patterns, and the definition of an architecture for a solution addressing business needs.",
-      "highlights": ["Java", "SQL", "Design Patterns, UML"],
-      "url": "https://github.com/mmercedesotero/TPA-G3-DDS-2026",
-      "github": "https://github.com/mmercedesotero/TPA-G3-DDS-2026"
+      "description": "Personal portfolio built with Astro and TypeScript, deployed on Vercel.",
+      "highlights": [
+        "Astro",
+        "TypeScript",
+        "CSS"
+      ],
+      "links": [
+        {
+          "label": "View source code",
+          "url": "https://github.com/mmercedesotero/MiPortfolio-js",
+          "type": "github"
+        }
+      ]
     }
   ],
   "experience": [
     {
-      "name": "Teaching Assistant ",
-      "position": "Course: Syntax and Semantics of Programming Languages ",
+      "name": "Teaching Assistant",
+      "position": "Course: Syntax and Semantics of Programming Languages",
       "startDate": "2026",
       "endDate": null,
       "summary": null
-    }
-    ,{
-      "name": "English Teacher ",
-      "position": "T.E.I English Institute ",
+    },
+    {
+      "name": "English Teacher",
+      "position": "T.E.I English Institute",
       "startDate": "2026",
       "endDate": null,
       "summary": null
@@ -125,11 +259,11 @@
   ],
   "languages": [
     {
-      "language": "Español",
+      "language": "Spanish",
       "fluency": "Native"
     },
     {
-      "language": "Inglés",
+      "language": "English",
       "fluency": "Advanced"
     }
   ]

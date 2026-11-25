@@ -1,5 +1,5 @@
 ---
-import Section from "../Section.astro"
+import Section from "@/components/Section.astro"
 import HTML from "@/icons/html.astro"
 import CSS from "@/icons/css.astro"
 import JavaScript from "@/icons/javascript.astro"
@@ -10,16 +10,23 @@ import Haskell from "@/icons/Haskell.astro"
 import Python from "@/icons/Python.astro"
 import C from "@/icons/C.astro"
 import Cmasmas from "@/icons/Cmasmas.astro"
-import type { CV } from "@/cv"
+import Java from "@/icons/java.astro"
+import React from "@/icons/react.astro"
+import AstroIcon from "@/icons/astro.astro"
+import Node from "@/icons/node.astro"
+import Express from "@/icons/express.astro"
+import Spring from "@/icons/spring.astro"
+import Database from "@/icons/database.astro"
+import Docker from "@/icons/docker.astro"
+import RabbitMQ from "@/icons/rabbitmq.astro"
+import Postman from "@/icons/postman.astro"
+import { getText, getLevelScore } from "@/utils/i18n"
+import type { SectionProps } from "@/types"
 
-interface Props {
-  cv: CV
-  lang: "es" | "en"
-}
+const { cv, lang } = Astro.props as SectionProps
+const { eyebrow, title } = getText(lang).sections.skills
 
-const { cv, lang } = Astro.props
-const { skills } = cv
-const SKILLS_ICONS: Record<string, any> = {
+const SKILL_ICONS: Record<string, typeof HTML> = {
   HTML,
   CSS,
   JavaScript,
@@ -27,78 +34,156 @@ const SKILLS_ICONS: Record<string, any> = {
   Git,
   GitHub,
   Python,
-  Haskell, 
+  Haskell,
   C,
-  Cmasmas
+  Cmasmas,
+  Java,
+  React,
+  "React Native": React,
+  Astro: AstroIcon,
+  "Node.js": Node,
+  Express,
+  "Spring Boot": Spring,
+  SQL: Database,
+  MySQL: Database,
+  Docker,
+  RabbitMQ,
+  Postman
+}
+
+// Nombres del JSON que se muestran distinto en pantalla
+const DISPLAY_NAMES: Record<string, string> = { Cmasmas: "C++" }
+
+// Agrupa por categoría respetando el orden del JSON
+const groups = new Map<string, typeof cv.skills>()
+for (const skill of cv.skills) {
+  groups.set(skill.category, [...(groups.get(skill.category) ?? []), skill])
 }
 ---
 
-<Section title={lang === "es" ? "Habilidades" : "Skills"}>
-  <ul>
+<Section id="skills" eyebrow={eyebrow} title={title}>
+  <div class="groups">
     {
-      skills.map(({ name, level }) => {
+      [...groups].map(([category, skills]) => (
+        <div class="group">
+          <h3>{category}</h3>
+          <ul>
+            {skills.map(({ name, level }) => {
+              const Icon = SKILL_ICONS[name]
+              const score = getLevelScore(level)
 
-         const displayName = name === "Cmasmas" ? "C++" : name;
-
-          const iconName = name === "Next.js" ? "Next" : name;
-          const Icon = SKILLS_ICONS[iconName];
-
-          return (
-            <div class="level">
-              <li>
-                {Icon && <Icon />} <span>{displayName}</span>
-              </li>
-              <li2>
-              <span>{level}</span>
-            </li2>
-            </div>
-        )
-      })
+              return (
+                <li>
+                  <span class="name">
+                    <span class="icon">{Icon && <Icon />}</span>
+                    {DISPLAY_NAMES[name] ?? name}
+                  </span>
+                  <span class="level" title={level}>
+                    <span class="meter" aria-hidden="true">
+                      {[1, 2, 3].map((n) => (
+                        <i class:list={{ on: n <= score }} />
+                      ))}
+                    </span>
+                    {level}
+                  </span>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      ))
     }
-  </ul>
+  </div>
 </Section>
 
 <style>
-  ul {
-    display: inline-flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 10px;
+  .groups {
+    columns: 2;
+    column-gap: 1.25rem;
   }
-  .level {
-    display: flex; 
-    gap: 10px;
-    flex:1; 
-    padding: 10px;
-    //border: 1px solid #eee; 
-    border-radius: 10px;
-    background: #aaac9271;
 
+  .icon {
+    display: inline-flex;
+    width: 16px;
+    justify-content: center;
+  }
+
+  .group {
+    break-inside: avoid;
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  h3 {
+    margin-bottom: 0.9rem;
+    color: var(--olive);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   li {
-    align-items: center;
-    //background: #eee;
-    background: #eeeeee8d;
-    border-radius: 6px;
-    color: black;
     display: flex;
-    font-size: 0.8rem;
-    font-weight: 500;
-    gap: 4px;
-    padding: 0.2rem 0.6rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 8px;
+    background: #564d0614;
+    transition: background 0.2s ease;
   }
 
-  li2 {
+  li:hover {
+    background: #564d0626;
+  }
+
+  .name {
+    display: inline-flex;
     align-items: center;
-    //background: #eeeeee8d;
-    border-radius: 6px;
-    border: 1px solid #eee;
-    color: rgb(74, 56, 56);
-    display: flex;
-    font-size: 0.8rem;
+    gap: 6px;
+    color: var(--ink);
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .level {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #4a3838;
+    font-size: 0.72rem;
     font-weight: 500;
-    gap: 5px;
-    padding: 0.3rem 0.6rem;
+  }
+
+  .meter {
+    display: inline-flex;
+    gap: 3px;
+  }
+
+  .meter i {
+    width: 14px;
+    height: 5px;
+    border-radius: 3px;
+    background: #00000020;
+  }
+
+  .meter i.on {
+    background: var(--olive);
+  }
+
+  @media (width <= 700px) {
+    .groups {
+      columns: 1;
+    }
   }
 </style>

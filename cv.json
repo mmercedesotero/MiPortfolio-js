@@ -10,7 +10,7 @@
     "location": {
       "address": "Buenos Aires",
       "postalCode": "1768",
-      "countryCode": "ES",
+      "countryCode": "AR",
       "region": "Argentina"
     },
     "profiles": [
@@ -26,98 +26,232 @@
       }
     ]
   },
-  "education": [{
-    "institution": "Ana María Janer   ",	
-    "area": "Escuela secundaria con Bachiller Informática",
-    "startDate": "2019 ", 
-    "endDate": "2023"
-  }
-  ,{
-    "institution": "Universidad Tecnológica Nacional (UTN)  ",	
-    "area": "Ingeniería en Sistemas de Información",
-    "startDate": "2024", 
-    "endDate": null
-  }],
+  "education": [
+    {
+      "institution": "Ana María Janer",
+      "area": "Escuela secundaria con Bachiller Informática",
+      "startDate": "2019",
+      "endDate": "2023"
+    },
+    {
+      "institution": "Universidad Tecnológica Nacional (UTN)",
+      "area": "Ingeniería en Sistemas de Información",
+      "startDate": "2024",
+      "endDate": null
+    }
+  ],
   "skills": [
     {
       "name": "Cmasmas",
-      "level": "Avanzado"
-    },
-    {
-      "name": "HTML",
+      "category": "Lenguajes",
       "level": "Avanzado"
     },
     {
       "name": "C",
+      "category": "Lenguajes",
       "level": "Avanzado"
     },
     {
-      "name": "CSS",
+      "name": "Java",
+      "category": "Lenguajes",
       "level": "Avanzado"
     },
     {
       "name": "Haskell",
+      "category": "Lenguajes",
       "level": "Avanzado"
     },
     {
       "name": "Python",
+      "category": "Lenguajes",
       "level": "Principiante"
     },
     {
-      "name": "Java",
+      "name": "JavaScript",
+      "category": "Lenguajes",
+      "level": "Intermedio"
+    },
+    {
+      "name": "TypeScript",
+      "category": "Lenguajes",
+      "level": "Intermedio"
+    },
+    {
+      "name": "HTML",
+      "category": "Frontend",
       "level": "Avanzado"
+    },
+    {
+      "name": "CSS",
+      "category": "Frontend",
+      "level": "Avanzado"
+    },
+    {
+      "name": "React",
+      "category": "Frontend",
+      "level": "Intermedio"
+    },
+    {
+      "name": "React Native",
+      "category": "Frontend",
+      "level": "Intermedio"
+    },
+    {
+      "name": "Astro",
+      "category": "Frontend",
+      "level": "Avanzado"
+    },
+    {
+      "name": "Node.js",
+      "category": "Backend",
+      "level": "Intermedio"
+    },
+    {
+      "name": "Express",
+      "category": "Backend",
+      "level": "Intermedio"
+    },
+    {
+      "name": "Spring Boot",
+      "category": "Backend",
+      "level": "Intermedio"
+    },
+    {
+      "name": "SQL",
+      "category": "Datos",
+      "level": "Intermedio"
+    },
+    {
+      "name": "MySQL",
+      "category": "Datos",
+      "level": "Intermedio"
     },
     {
       "name": "Git",
+      "category": "Herramientas",
       "level": "Avanzado"
     },
-   
     {
       "name": "GitHub",
+      "category": "Herramientas",
       "level": "Avanzado"
-    }
-    ,{
-      "name": "SQL",
+    },
+    {
+      "name": "Docker",
+      "category": "Herramientas",
+      "level": "Avanzado"
+    },
+    {
+      "name": "RabbitMQ",
+      "category": "Herramientas",
       "level": "Intermedio"
+    },
+    {
+      "name": "Postman",
+      "category": "Herramientas",
+      "level": "Avanzado"
     }
   ],
   "projects": [
     {
-      "name": "My Portfolio",
+      "name": "AI Ticket It",
       "isActive": false,
-      "description": "Portfolio personal desarrollado con Astro y TypeScript",
-      "highlights": ["Astro", "TypeScript", "CSS"],
-      "url": "https://mmercedesotero.github.io/",
-      "github": "https://github.com/mmercedesotero/MiPortfolio-js"
+      "featured": true,
+      "description": "Plataforma para publicar eventos y vender entradas, con cuentas de comprador y de organizador. Se puede explorar y filtrar eventos, comprar o reservar, pagar con tarjeta, recibir la entrada con código QR, descargar el comprobante en PDF, chatear con el organizador y dejar reseñas. Nació como app móvil (React Native + Expo) y se adaptó a la web con un diseño propio para escritorio. El backend es una API REST en Node.js + Express con autenticación JWT y tests automáticos.",
+      "highlights": [
+        "React Native",
+        "Expo",
+        "Node.js",
+        "Express",
+        "JWT",
+        "Vercel",
+        "Render"
+      ],
+      "links": [
+        {
+          "label": "Ver la web",
+          "url": "https://ai-ticket-it-web-ten.vercel.app",
+          "type": "live"
+        },
+        {
+          "label": "Código de la web",
+          "url": "https://github.com/mmercedesotero/AI-Ticket-it-Web",
+          "type": "github"
+        },
+        {
+          "label": "Código de la app móvil",
+          "url": "https://github.com/mmercedesotero/AI-Ticket-it",
+          "type": "github"
+        }
+      ]
     },
     {
-      "name": "Analizador Léxico, Semántico y Sintáctico  ",
-      "isActive": false,
-      "description": "Proyecto completado para la materia Sintaxis y Semántica de Lenguajes de Programación en colaboración con compañeros",
-      "highlights": ["C", "Bison", "Flex"],
-      "url": "https://github.com/mmercedesotero/Analizador-Sint-ctico-L-xico-y-Sem-ntico",
-      "github": "https://github.com/mmercedesotero/Analizador-Sint-ctico-L-xico-y-Sem-ntico"
-    },
-  {
-      "name": "Diseño y Modelado de Servicio de Software",
+      "name": "Plataforma de donaciones con incentivos (TPA DDSI)",
       "isActive": true,
-      "description": "Proyecto grupal de análisis y diseño de software en el que se desarrollaron modelos UML, se aplicaron patrones de diseño y se definió la arquitectura de una solución orientada a resolver necesidades de negocio.",
-      "highlights": ["Java", "SQL", "Patrones de Diseño", "UML"],
-      "url": "https://github.com/mmercedesotero/TPA-G3-DDS-2026",
-      "github": "https://github.com/mmercedesotero/TPA-G3-DDS-2026"
+      "featured": true,
+      "description": "Trabajo práctico anual grupal de Diseño de Sistemas de Información (9 integrantes). Plataforma de donaciones de bienes con gamificación, notificaciones y logística, resuelta con cuatro microservicios Spring Boot, cada uno con su propia base MySQL, integración asíncrona por RabbitMQ, workflows con n8n y todo orquestado con Docker Compose. Incluye modelado UML y patrones de diseño.",
+      "highlights": [
+        "Java",
+        "Spring Boot",
+        "MySQL",
+        "RabbitMQ",
+        "Docker",
+        "UML"
+      ],
+      "links": [
+        {
+          "label": "Ver código",
+          "url": "https://github.com/mmercedesotero/TPA-G3-DDS-2026",
+          "type": "github"
+        }
+      ]
+    },
+    {
+      "name": "Analizador Léxico, Semántico y Sintáctico",
+      "isActive": false,
+      "description": "Proyecto completado para la materia Sintaxis y Semántica de Lenguajes de Programación, en colaboración con compañeros.",
+      "highlights": [
+        "C",
+        "Bison",
+        "Flex"
+      ],
+      "links": [
+        {
+          "label": "Ver código",
+          "url": "https://github.com/mmercedesotero/Analizador-Sint-ctico-L-xico-y-Sem-ntico",
+          "type": "github"
+        }
+      ]
+    },
+    {
+      "name": "Mi Portfolio",
+      "isActive": false,
+      "description": "Portfolio personal desarrollado con Astro y TypeScript, publicado en Vercel.",
+      "highlights": [
+        "Astro",
+        "TypeScript",
+        "CSS"
+      ],
+      "links": [
+        {
+          "label": "Ver código",
+          "url": "https://github.com/mmercedesotero/MiPortfolio-js",
+          "type": "github"
+        }
+      ]
     }
   ],
   "experience": [
     {
       "name": "Ayudante de Cátedra",
-      "position": "Materia: Sintaxis y Semántica de Lenguajes de Programación ",
+      "position": "Materia: Sintaxis y Semántica de Lenguajes de Programación",
       "startDate": "2026",
       "endDate": null,
       "summary": null
-    }
-    ,{
-      "name": "Profesora de Inglés ",
-      "position": "T.E.I English Institute ",
+    },
+    {
+      "name": "Profesora de Inglés",
+      "position": "T.E.I English Institute",
       "startDate": "2026",
       "endDate": null,
       "summary": null
